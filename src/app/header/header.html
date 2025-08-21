@@ -26,14 +26,14 @@
 
       <!-- Mobile Menu Button -->
       <div class="md:hidden flex items-center">
-        <button routerLink="/card" class="bg-blue-600 text-white px-3 py-2 rounded hover:bg-blue-700 me-4 rounded"> 
+        <button routerLink="/cart" class="bg-blue-600 text-white px-3 py-2 rounded hover:bg-blue-700 me-4 rounded"> 
             <div class="flex items-center">
                 <!-- Shopping Cart Icon (Heroicons) -->
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-200">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386a.75.75 0 01.707.517L5.91 7.5h12.18a.75.75 0 01.728.939l-1.5 6A.75.75 0 0116.594 15H7.406a.75.75 0 01-.728-.561L4.5 4.5H2.25m16.5 13.5a1.125 1.125 0 11-2.25 0 1.125 1.125 0 012.25 0zm-10.5 0a1.125 1.125 0 11-2.25 0 1.125 1.125 0 012.25 0z" />
                 </svg>
 
-                Cart (<span class="text-red-600 font-bold">0</span>)
+                Cart (<span class="text-red-600 font-bold">{{cardList.length}}</span>)
             </div>
         </button>
         <button (click)="toggleMenu()" class="text-gray-600 focus:outline-none text-2xl">
