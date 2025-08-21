@@ -1,0 +1,54 @@
+<nav class="bg-white shadow-md fixed top-0 w-full z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <span class="text-2xl font-bold text-blue-600">AYStore</span>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-6 items-center">
+        <a routerLink="/" class="text-gray-600 hover:text-blue-600">Home</a>
+        <a routerLink="/about" class="text-gray-600 hover:text-blue-600">About</a>
+
+        <a routerLink="/contact" class="text-gray-600 hover:text-blue-600">Contact</a>
+        <a routerLink="/cart"><button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"> 
+            <div class="flex items-center">
+                <!-- Shopping Cart Icon (Heroicons) -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-200">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386a.75.75 0 01.707.517L5.91 7.5h12.18a.75.75 0 01.728.939l-1.5 6A.75.75 0 0116.594 15H7.406a.75.75 0 01-.728-.561L4.5 4.5H2.25m16.5 13.5a1.125 1.125 0 11-2.25 0 1.125 1.125 0 012.25 0zm-10.5 0a1.125 1.125 0 11-2.25 0 1.125 1.125 0 012.25 0z" />
+                </svg>
+
+                Cart (<span class="text-red-600 font-bold">{{cardList.length}}</span>)
+            </div>
+        </button></a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden flex items-center">
+        <button routerLink="/card" class="bg-blue-600 text-white px-3 py-2 rounded hover:bg-blue-700 me-4 rounded"> 
+            <div class="flex items-center">
+                <!-- Shopping Cart Icon (Heroicons) -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-200">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386a.75.75 0 01.707.517L5.91 7.5h12.18a.75.75 0 01.728.939l-1.5 6A.75.75 0 0116.594 15H7.406a.75.75 0 01-.728-.561L4.5 4.5H2.25m16.5 13.5a1.125 1.125 0 11-2.25 0 1.125 1.125 0 012.25 0zm-10.5 0a1.125 1.125 0 11-2.25 0 1.125 1.125 0 012.25 0z" />
+                </svg>
+
+                Cart (<span class="text-red-600 font-bold">0</span>)
+            </div>
+        </button>
+        <button (click)="toggleMenu()" class="text-gray-600 focus:outline-none text-2xl">
+          ☰
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div *ngIf="isMenuOpen" class="md:hidden px-4 pb-4">
+    <a routerLink="/" class="block py-2 text-gray-600 hover:text-blue-600">Home</a>
+    <a routerLink="/about" class="block py-2 text-gray-600 hover:text-blue-600">About</a>
+
+    <a routerLink="/contact" class="block py-2 text-gray-600 hover:text-blue-600">Contact</a>
+    <button class="w-full mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Login</button>
+  </div>
+</nav>

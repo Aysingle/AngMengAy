@@ -1,0 +1,60 @@
+<div class="container mx-auto my-10 px-4 pt-10 max-w-3xl min-h-[80vh]">
+  <!-- Cart Items -->
+  <div class="bg-white rounded-2xl shadow-lg p-6">
+    <div class="space-y-6">
+  <!-- Item Loop -->
+  @for(cart of cartList; track cart.id){
+    <div class="grid grid-cols-12 items-center gap-4">
+      <!-- Image + Name -->
+      <div class="col-span-6 flex items-center gap-4">
+        <img src={{cart.imageUrl}} class="w-20 h-20 object-cover rounded-md" alt="{{cart.name}}">
+        <div>
+          <h3 class="font-semibold">{{cart.name}}</h3>
+        </div>
+      </div>
+
+      <!-- Quantity -->
+      <div class="col-span-3 flex items-center justify-center gap-3">
+        <input type="number" value="{{cart.qty}}" (change)="handleQty(cart.id, $event)" class="w-16 border rounded-lg px-2 py-1 text-center" min="1">
+      </div>
+
+      <!-- Price -->
+      <div class="col-span-2 text-center font-semibold">
+        {{cart.price | currency}}
+      </div>
+
+      <!-- Delete -->
+      <div class="col-span-1 text-right">
+        <button class="text-gray-400 hover:text-red-500" (click)="handleDelete(cart.id)">
+          🗑
+        </button>
+      </div>
+    </div>
+  }
+</div>
+
+
+
+
+    <!-- Shipping -->
+    <div class="mt-6 flex justify-between items-center border-t pt-4">
+      <input type="text" placeholder="Enter ZIP Code" class="border rounded-lg px-3 py-2 w-1/2">
+      <a href="#"><button class="text-black font-medium">Shipping →</button></a>
+    </div>
+
+    <!-- Total -->
+    <div class="mt-6 flex justify-between items-center text-lg font-semibold">
+      <p>Total</p>
+      <p>{{totalAmount | currency}}</p>
+    </div>
+
+    <!-- Checkout -->
+    <div class="mt-4">
+      <button class="w-full bg-black text-white py-3 rounded-full text-lg font-semibold">
+        Checkout
+      </button>
+    </div>
+
+    
+  </div>
+</div>
